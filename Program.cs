@@ -98,7 +98,7 @@ List<string> AngolKonyvek = new()
 for (int i = 0; i < 15; i++)
 {
     string isbn = Random.Shared.NextInt64(1000000000, 10000000000).ToString();
-    //while(konyvek.Any(k => k.ISBN.Equals(isbn))) isbn = Random.Shared.NextInt64(1000000000, 10000000000).ToString();
+    while(konyvek.Any(k => k.ISBN.Equals(isbn))) isbn = Random.Shared.NextInt64(1000000000, 10000000000).ToString();
 
     int keszleten = Random.Shared.Next(5, 11);
     if (Random.Shared.Next(0, 10) < 3) keszleten = 0;
@@ -169,6 +169,6 @@ for (int i = 0; i < 100; i++)
     }
 }
 
-Console.WriteLine($"Az eladásokból származó bevétel: {bevetel}");
+Console.WriteLine($"Az eladásokból származó bevétel: {bevetel} Ft");
 Console.WriteLine($"A készletünkből {keszlet - konyvek.Sum(k => k.Keszlet)} darab köny fogyott");
-Console.WriteLine($"A nagykerből elfogyott címek száma: {kifogyott}");
+Console.WriteLine($"A nagykerből elfogyott címek száma: {kifogyott} db");
